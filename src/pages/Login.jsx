@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -13,169 +13,151 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const auth = getAuth();
-  const emailRef = useRef();
 
   const from = location.state?.from?.pathname || "/";
 
-  // login with email & password
+  // Email/Password Login
   const handleLogin = (e) => {
     e.preventDefault();
-
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
 
     // Password validation
     if (password.length < 6) {
-      toast.error("Password must be at least 6 characters long.", {
-        position: "top-center",
-      });
-      return;
+      return toast.error("Password must be at least 6 characters long.");
     }
     if (!/[A-Z]/.test(password)) {
-      toast.error("Password must be contain at least one uppercase letter.", {
-        position: "top-center",
-      });
-      return;
+      return toast.error(
+        "Password must contain at least one uppercase letter."
+      );
     }
     if (!/[a-z]/.test(password)) {
-      toast.error("Password must be contain at least one lowercase letter.", {
-        position: "top-center",
-      });
-      return;
+      return toast.error(
+        "Password must contain at least one lowercase letter."
+      );
     }
 
     login(email, password)
       .then((result) => {
-        const user = result.user;
-        setUser(user);
-        toast.success("Login Successful!", {
-          position: "top-center",
-        });
+        setUser(result.user);
+        toast.success("Login Successful!");
         navigate(from, { replace: true });
       })
-      .catch((error) => {
-        toast.error(
-          "Login Failed! Please check your credentials",
-          {
-            position: "top-center",
-          },
-          error
-        );
+      .catch(() => {
+        toast.error("Login Failed! Please check your credentials.");
       });
   };
 
-  // Login with google
+  // Google Login
   const handleGoogleLogin = () => {
     const provider = new GoogleAuthProvider();
-
     signInWithPopup(auth, provider)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
-        setUser(user);
-        toast.success("Successfully Logged in with Google!", {
-          position: "top-center",
-        });
-        navigate("/");
+        setUser(result.user);
+        toast.success("Successfully Logged in with Google!");
+        navigate(from, { replace: true });
       })
-      .catch((error) => {
-        toast.error("Login failed", { position: "top-center" }, error.message);
+      .catch(() => {
+        toast.error("Google login failed.");
       });
   };
 
   return (
-    <>
-      <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold text-center">Login now!</h1>
-            <p className="py-6 text-center max-w-md">
-              Access your SportHive account to manage gear, track your list, and
-              stay in the game.
-            </p>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 via-white to-slate-100 px-4 py-10">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
+        <h2 className="text-3xl font-bold text-center mb-4 text-slate-800">
+          Welcome Back
+        </h2>
+        <p className="text-sm text-center text-slate-600 mb-6">
+          Login to manage your services and stay connected.
+        </p>
+
+        <form onSubmit={handleLogin} className="space-y-4">
+          {/* Email */}
+          <div>
+            <label className="block mb-1 text-sm font-medium text-slate-700">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              required
+              onChange={(e) => setEmail(e.target.value)}
+              className="input input-bordered w-full"
+              placeholder="Enter your email"
+            />
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <div className="card-body">
-              <form onSubmit={handleLogin} className="card-body">
-                <div className="form-control">
-                  <label className="label mb-1">
-                    <span className="label-text">Email</span>
-                  </label>
-                  <input
-                    name="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                    }}
-                    placeholder="email"
-                    className="input input-bordered"
-                    required
-                  />
-                </div>
-                <div className="form-control relative">
-                  <label className="label mb-1">
-                    <span className="label-text">Password</span>
-                  </label>
-                  <input
-                    name="password"
-                    type={showPassword ? "text" : "password"}
-                    placeholder="password"
-                    className="input input-bordered"
-                    required
-                  />
-                  <button
-                    onClick={() => setShowPassword(!showPassword)}
-                    type="button"
-                    className="btn btn-xs btn-ghost absolute right-2 bottom-7"
-                  >
-                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                  </button>
-                  <label className="label">
-                    <Link
-                      to="/forgot-password"
-                      state={{ email: email }}
-                      className="label-text-alt link link-hover"
-                    >
-                      Forgot password?
-                    </Link>
-                  </label>
-                </div>
-                <div className="form-control mt-6">
-                  <button className="btn bg-slate-900 text-white w-full rounded-full">
-                    Login
-                  </button>
-                </div>
-                <div className="form-control mb-6">
-                  <button
-                    type="button"
-                    onClick={handleGoogleLogin}
-                    className="btn bg-slate-900 text-white w-full rounded-full"
-                  >
-                    <img
-                      className="w-5"
-                      src="https://img.icons8.com/?size=100&id=V5cGWnc9R4xj&format=png&color=000000"
-                      alt="google-icon"
-                    />
-                    Login with Google
-                  </button>
-                </div>
-                <h4 className="text-center">
-                  Don't Have Any Account?
-                  <Link
-                    to="/register"
-                    className="text-blue-500 hover:underline ml-1"
-                  >
-                    Register
-                  </Link>
-                </h4>
-              </form>
+
+          {/* Password */}
+          <div className="relative">
+            <label className="block mb-1 text-sm font-medium text-slate-700">
+              Password
+            </label>
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              required
+              className="input input-bordered w-full pr-10"
+              placeholder="Enter your password"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-9 text-slate-600"
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
+            <div className="text-right mt-1">
+              <Link
+                to="/forgot-password"
+                state={{ email }}
+                className="text-xs text-blue-500 hover:underline"
+              >
+                Forgot password?
+              </Link>
             </div>
           </div>
+
+          {/* Login Button */}
+          <button
+            type="submit"
+            className="btn bg-slate-900 text-white w-full rounded-full hover:bg-slate-800 transition"
+          >
+            Login
+          </button>
+        </form>
+
+        {/* Divider */}
+        <div className="flex items-center my-4">
+          <div className="border-t flex-grow border-slate-200"></div>
+          <span className="mx-3 text-sm text-slate-400">OR</span>
+          <div className="border-t flex-grow border-slate-200"></div>
         </div>
+
+        {/* Google Login */}
+        <button
+          onClick={handleGoogleLogin}
+          className="btn bg-white border border-slate-300 text-slate-700 w-full rounded-full hover:bg-slate-100 transition flex items-center justify-center gap-2"
+        >
+          <img
+            className="w-5 h-5"
+            src="https://img.icons8.com/color/48/google-logo.png"
+            alt="Google Icon"
+          />
+          Login with Google
+        </button>
+
+        {/* Register Link */}
+        <p className="text-center text-sm mt-6">
+          Don't have an account?
+          <Link to="/register" className="text-blue-500 ml-1 hover:underline">
+            Register here
+          </Link>
+        </p>
       </div>
-    </>
+    </div>
   );
 };
 
