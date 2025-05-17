@@ -1,10 +1,13 @@
-import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const ManageService = () => {
     return (
-        <div>
-           Manage Service 
-        </div>
+      <>
+        <Helmet>
+          <title>Manage Service || GadgetAid</title>
+        </Helmet>
+        Manage Service
+      </>
     );
 };
 

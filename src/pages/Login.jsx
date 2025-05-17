@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -64,100 +65,105 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 flex items-center justify-center p-4">
-      <div className="glass card w-full max-w-md p-6 rounded-2xl shadow-xl">
-        <h2 className="text-3xl font-bold text-center mb-4 text-slate-800">
-          Welcome Back
-        </h2>
-        <p className="text-sm text-center text-slate-600 mb-6">
-          Login to manage your services and stay connected.
-        </p>
+    <>
+      <Helmet>
+        <title>Login || GadgetAid</title>
+      </Helmet>
+      <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 flex items-center justify-center p-4">
+        <div className="glass card w-full max-w-md p-6 rounded-2xl shadow-xl">
+          <h2 className="text-3xl font-bold text-center mb-4 text-slate-800">
+            Welcome Back
+          </h2>
+          <p className="text-sm text-center text-slate-600 mb-6">
+            Login to manage your services and stay connected.
+          </p>
 
-        <form onSubmit={handleLogin} className="space-y-4">
-          {/* Email */}
-          <div>
-            <label className="block mb-1 text-sm font-medium text-slate-700">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              value={email}
-              required
-              onChange={(e) => setEmail(e.target.value)}
-              className="input input-bordered w-full"
-              placeholder="Enter your email"
-            />
-          </div>
-
-          {/* Password */}
-          <div className="relative">
-            <label className="block mb-1 text-sm font-medium text-slate-700">
-              Password
-            </label>
-            <input
-              type={showPassword ? "text" : "password"}
-              name="password"
-              required
-              className="input input-bordered w-full pr-10"
-              placeholder="Enter your password"
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-9 text-slate-600"
-            >
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </button>
-            <div className="text-right mt-1">
-              <Link
-                to="/forgot-password"
-                state={{ email }}
-                className="text-xs text-blue-500 hover:underline"
-              >
-                Forgot password?
-              </Link>
+          <form onSubmit={handleLogin} className="space-y-4">
+            {/* Email */}
+            <div>
+              <label className="block mb-1 text-sm font-medium text-slate-700">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={email}
+                required
+                onChange={(e) => setEmail(e.target.value)}
+                className="input input-bordered w-full"
+                placeholder="Enter your email"
+              />
             </div>
+
+            {/* Password */}
+            <div className="relative">
+              <label className="block mb-1 text-sm font-medium text-slate-700">
+                Password
+              </label>
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                required
+                className="input input-bordered w-full pr-10"
+                placeholder="Enter your password"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-9 text-slate-600"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+              <div className="text-right mt-1">
+                <Link
+                  to="/forgot-password"
+                  state={{ email }}
+                  className="text-xs text-blue-500 hover:underline"
+                >
+                  Forgot password?
+                </Link>
+              </div>
+            </div>
+
+            {/* Login Button */}
+            <button
+              type="submit"
+              className="btn bg-slate-900 text-white w-full rounded-full hover:bg-slate-800 transition"
+            >
+              Login
+            </button>
+          </form>
+
+          {/* Divider */}
+          <div className="flex items-center my-4">
+            <div className="border-t flex-grow border-slate-200"></div>
+            <span className="mx-3 text-sm text-slate-400">OR</span>
+            <div className="border-t flex-grow border-slate-200"></div>
           </div>
 
-          {/* Login Button */}
+          {/* Google Login */}
           <button
-            type="submit"
-            className="btn bg-slate-900 text-white w-full rounded-full hover:bg-slate-800 transition"
+            onClick={handleGoogleLogin}
+            className="btn bg-white border border-slate-300 text-slate-700 w-full rounded-full hover:bg-slate-100 transition flex items-center justify-center gap-2"
           >
-            Login
+            <img
+              className="w-5 h-5"
+              src="https://img.icons8.com/color/48/google-logo.png"
+              alt="Google Icon"
+            />
+            Login with Google
           </button>
-        </form>
 
-        {/* Divider */}
-        <div className="flex items-center my-4">
-          <div className="border-t flex-grow border-slate-200"></div>
-          <span className="mx-3 text-sm text-slate-400">OR</span>
-          <div className="border-t flex-grow border-slate-200"></div>
+          {/* Register Link */}
+          <p className="text-center text-sm mt-6">
+            Don't have an account?
+            <Link to="/register" className="text-blue-500 ml-1 hover:underline">
+              Register here
+            </Link>
+          </p>
         </div>
-
-        {/* Google Login */}
-        <button
-          onClick={handleGoogleLogin}
-          className="btn bg-white border border-slate-300 text-slate-700 w-full rounded-full hover:bg-slate-100 transition flex items-center justify-center gap-2"
-        >
-          <img
-            className="w-5 h-5"
-            src="https://img.icons8.com/color/48/google-logo.png"
-            alt="Google Icon"
-          />
-          Login with Google
-        </button>
-
-        {/* Register Link */}
-        <p className="text-center text-sm mt-6">
-          Don't have an account?
-          <Link to="/register" className="text-blue-500 ml-1 hover:underline">
-            Register here
-          </Link>
-        </p>
       </div>
-    </div>
+    </>
   );
 };
 

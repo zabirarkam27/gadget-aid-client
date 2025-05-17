@@ -1,11 +1,15 @@
-import React from 'react';
+import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const Services = () => {
-    return (
-        <div>
-            Service
-        </div>
-    );
+  return (
+    <>
+      <Helmet>
+        <title>Services || GadgetAid</title>
+      </Helmet>
+      Service
+    </>
+  );
 };
 
 export default Services;
