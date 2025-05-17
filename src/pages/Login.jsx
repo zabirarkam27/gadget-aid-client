@@ -64,8 +64,8 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 via-white to-slate-100 px-4 py-10">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 flex items-center justify-center p-4">
+      <div className="glass card w-full max-w-md p-6 rounded-2xl shadow-xl">
         <h2 className="text-3xl font-bold text-center mb-4 text-slate-800">
           Welcome Back
         </h2>
