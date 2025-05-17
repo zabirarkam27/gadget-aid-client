@@ -63,7 +63,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="sticky top-0 z-50 bg-base-100 bg-opacity-90 backdrop-blur-md shadow-md w-full px-2 md:px-4">
+    <div className="sticky top-0 z-50 w-full px-2 md:px-4 backdrop-blur-lg bg-white/30 dark:bg-black/30 shadow-md border-b border-white/20 dark:border-black/20">
       <div className="navbar md:container md:mx-auto md:max-w-screen-xl">
         {/* Left: Logo + Hamburger */}
         <div className="navbar-start">
@@ -92,9 +92,23 @@ const Navbar = () => {
               <ThemeChanger className="block lg:hidden" />
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost normal-case text-xl">
-            <img src={logo} alt="logo" className="w-24 md:w-28" />
-          </Link>
+          <Link
+                      to="/"
+                      className="inline-flex items-center justify-center md:justify-start gap-2"
+                    >
+                      <img
+                        src={logo}
+                        alt="Gadget Aid Logo"
+                        className="w-10 h-10 rounded-lg"
+                      />
+                      <span className="text-xl font-bold tracking-wide">
+                        <span className="bg-gradient-to-t from-[#00365c] to-[#01425a] bg-clip-text text-transparent">
+                          Gadget
+                        </span>
+          
+                        <span className="text-gray-900">Aid</span>
+                      </span>
+                    </Link>
         </div>
 
         {/* Center: Menu links for desktop */}
