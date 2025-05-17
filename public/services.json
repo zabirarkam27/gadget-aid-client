@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Smartphone Screen Replacement",
+    "description": "We professionally replace cracked or shattered screens for iPhones, Samsung, Xiaomi, and other popular smartphones using high-quality, OEM-compliant parts. Our quick turnaround ensures you’re reconnected within hours.",
+    "price": 60,
+    "image": "https://i.ibb.co/5vLmZmN/phone-repair.jpg",
+    "providerName": "TechFix Hub",
+    "providerEmail": "support@techfix.com",
+    "providerPhoto": "https://i.ibb.co/KwpYZBZ/provider1.jpg",
+    "area": "Kazir Dewri, Chattogram"
+  },
+  {
+    "name": "Laptop Motherboard Repair",
+    "description": "From power issues to RAM slot failures, we specialize in advanced motherboard diagnostics and chip-level repairs for HP, Dell, Asus, and Lenovo laptops. All repairs are done in ESD-safe environments by certified technicians.",
+    "price": 120,
+    "image": "https://i.ibb.co/f20fWxT/laptop-repair.jpg",
+    "providerName": "Laptop Lab",
+    "providerEmail": "info@laptoplab.com",
+    "providerPhoto": "https://i.ibb.co/N7J8GCL/provider2.jpg",
+    "area": "Station Road, Sylhet"
+  },
+  {
+    "name": "LED TV Repair",
+    "description": "We fix all types of display, audio, and connectivity issues in LED, QLED, and smart TVs. Our team handles backlight replacement, T-con board faults, and firmware issues efficiently for Samsung, Sony, and LG TVs.",
+    "price": 85,
+    "image": "https://i.ibb.co/NWwMcKw/tv-repair.jpg",
+    "providerName": "Vision Care",
+    "providerEmail": "contact@visioncare.com",
+    "providerPhoto": "https://i.ibb.co/ChmGmtX/provider3.jpg",
+    "area": "Nawabganj, Dinajpur"
+  },
+  {
+    "name": "Microwave Oven Servicing",
+    "description": "Facing heating problems or electrical issues? We service solo, grill, and convection microwave ovens with precision. Services include magnetron replacement, circuit board repairs, and door mechanism fixes.",
+    "price": 45,
+    "image": "https://i.ibb.co/d6m5vns/microwave-repair.jpg",
+    "providerName": "HomeFix Solutions",
+    "providerEmail": "service@homefix.com",
+    "providerPhoto": "https://i.ibb.co/SrRLv0L/provider4.jpg",
+    "area": "Rajbari Town, Rajbari"
+  },
+  {
+    "name": "Air Conditioner Maintenance",
+    "description": "Comprehensive servicing for split and window ACs including deep cleaning of filters, condenser coil washing, gas recharging, and compressor performance checks. Ensure better airflow and energy efficiency.",
+    "price": 75,
+    "image": "https://i.ibb.co/2s1NWLS/ac-maintenance.jpg",
+    "providerName": "CoolTech BD",
+    "providerEmail": "support@cooltechbd.com",
+    "providerPhoto": "https://i.ibb.co/B2qMMFb/provider5.jpg",
+    "area": "Zindabazar, Sylhet"
+  },
+  {
+    "name": "Camera Lens Calibration",
+    "description": "Ensure razor-sharp focus by calibrating DSLR or mirrorless lenses. We use advanced focus charts and lens testing software for precise adjustments. Also includes sensor cleaning and firmware update services.",
+    "price": 50,
+    "image": "https://i.ibb.co/G9vw8Pw/camera-repair.jpg",
+    "providerName": "Pixel Studio",
+    "providerEmail": "repair@pixelstudio.com",
+    "providerPhoto": "https://i.ibb.co/m6KnXxS/provider6.jpg",
+    "area": "Boyra, Khulna"
+  },
+  {
+    "name": "Smartwatch Battery Replacement",
+    "description": "Whether your Apple Watch or Galaxy Watch drains too quickly or won’t turn on, our battery replacement service brings it back to life with genuine, warranty-backed batteries installed by trained professionals.",
+    "price": 25,
+    "image": "https://i.ibb.co/k6sJZ1Y/smartwatch-repair.jpg",
+    "providerName": "GadgetCare Pro",
+    "providerEmail": "help@gadgetcarepro.com",
+    "providerPhoto": "https://i.ibb.co/Jr2t6sQ/provider7.jpg",
+    "area": "Gorai, Tangail"
+  },
+  {
+    "name": "Bluetooth Speaker Repair",
+    "description": "Get your Bluetooth speaker sounding great again. We fix common issues like charging port damage, speaker distortion, blown drivers, and water damage. Brands like JBL, Sony, and Bose supported.",
+    "price": 35,
+    "image": "https://i.ibb.co/BzqGwML/speaker-repair.jpg",
+    "providerName": "AudioFix",
+    "providerEmail": "repair@audiofix.com",
+    "providerPhoto": "https://i.ibb.co/k0ytKXR/provider8.jpg",
+    "area": "Mymensingh Sadar, Mymensingh"
+  },
+  {
+    "name": "Router Configuration & Repair",
+    "description": "We resolve connectivity drops, slow speeds, and signal range problems. Our service includes firmware updates, port repair, IP configuration, and mesh router setup for both home and business use.",
+    "price": 20,
+    "image": "https://i.ibb.co/d4ZkCNh/router-repair.jpg",
+    "providerName": "NetNinja",
+    "providerEmail": "nethelp@netninja.com",
+    "providerPhoto": "https://i.ibb.co/d2Xf8ft/provider9.jpg",
+    "area": "Barisal City, Barisal"
+  },
+  {
+    "name": "Washing Machine Drum Repair",
+    "description": "Resolve issues like unbalanced spinning, loud noise, or leaking in front-load or top-load washers. We repair or replace faulty drums, belts, shock absorbers, and control panels.",
+    "price": 90,
+    "image": "https://i.ibb.co/Fn8YMCy/washing-machine-repair.jpg",
+    "providerName": "LaundryTech",
+    "providerEmail": "fix@laundrytech.com",
+    "providerPhoto": "https://i.ibb.co/Z2xV3MC/provider10.jpg",
+    "area": "Jessore Bazar, Jashore"
+  }
+]

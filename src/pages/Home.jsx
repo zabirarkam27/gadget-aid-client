@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import PopularServices from '../components/PopularServices';
 
 const Home = () => {
     return (
@@ -6,7 +7,7 @@ const Home = () => {
         <Helmet>
           <title>Home || GadgetAid</title>
         </Helmet>
-        home
+        <PopularServices></PopularServices>
       </>
     );
 };
