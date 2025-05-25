@@ -53,14 +53,13 @@
 **Backend**  
 - 🟩 Node.js, Express.js  
 - 🍃 MongoDB  
-- 🔐 JWT Authentication
 
 **Authentication**  
 - 🔥 Firebase (Email/Password, Google Sign-In)
 
 **Deployment**  
 - 🔗 Firebase Hosting (client)  
-- ☁️ [Add backend deployment platform here]
+- ☁️ [Vercel]
 
 ---
 
@@ -137,9 +136,7 @@ Special thanks to:
 
 For questions, suggestions, or collaboration, feel free to connect with me:
 
-📧 Email: `your-email@example.com`  
-🔗 LinkedIn: [your-linkedin-profile](#)  
-🌐 Portfolio: [your-portfolio-link](#)
+📧 Email: `zabirarkam27@gmail.com` 
 
 ---
 
