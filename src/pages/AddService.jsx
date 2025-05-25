@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ import useNavigate
 import { AuthContext } from "../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import { toast, ToastContainer } from "react-toastify";
@@ -7,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 const AddService = () => {
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(); // ✅ initialize navigate
 
   const handleAddService = async (e) => {
     e.preventDefault();
@@ -27,7 +29,7 @@ const AddService = () => {
       description,
       providerName: user.displayName,
       providerEmail: user.email,
-      providerPhoto: user.photoURL,
+      providerImage: user.photoURL,
       createdAt: new Date(),
     };
 
@@ -44,6 +46,10 @@ const AddService = () => {
       if (data.insertedId) {
         toast.success("Service added successfully!");
         form.reset();
+
+        setTimeout(() => {
+          navigate("/services");
+        }, 1500);
       } else {
         toast.error("Failed to add service. Try again.");
       }
@@ -143,7 +149,6 @@ const AddService = () => {
         </form>
       </div>
 
-      {/* Toast Container */}
       <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );

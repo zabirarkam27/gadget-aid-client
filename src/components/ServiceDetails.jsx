@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import { toast, ToastContainer } from "react-toastify";
@@ -8,6 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 const ServiceDetails = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate(); 
+
   const [service, setService] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [date, setDate] = useState("");
@@ -48,6 +50,7 @@ const ServiceDetails = () => {
       if (data.insertedId) {
         toast.success("Service booked successfully!");
         setShowModal(false);
+        navigate("/booked-services"); 
       }
     } catch (error) {
       console.error("Error booking service:", error);
