@@ -63,8 +63,11 @@ const BookedServices = () => {
               </p>
               <p>
                 <strong>Status:</strong>{" "}
-                <span className="capitalize">{booking.serviceStatus}</span>
+                <span className="capitalize">
+                  {booking.status ? booking.status : booking.serviceStatus}
+                </span>
               </p>
+
               <p>
                 <strong>Price:</strong> ${booking.price}
               </p>
