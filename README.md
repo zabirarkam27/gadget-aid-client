@@ -67,10 +67,12 @@
 ## 📁 Folder Structure
 ```
 GADGET-AID-CLIENT/
-├── public/                  # Static assets
-├── src/
-│   ├── assets/              # Images & SVGs
-│   ├── components/          # Reusable UI components
+│
+├── node_modules/              # Project dependencies
+├── public/                    # Static assets (if applicable)
+├── src/                       # Main source code
+│   ├── assets/                # Static files like images and SVGs
+│   ├── components/            # Reusable UI components
 │   │   ├── AboutUs.jsx
 │   │   ├── Banner.jsx
 │   │   ├── Button.jsx
@@ -83,21 +85,40 @@ GADGET-AID-CLIENT/
 │   │   ├── ServiceDetails.jsx
 │   │   ├── Services.jsx
 │   │   └── ThemeChanger.jsx
-│   ├── context/             # React Context
-│   ├── firebase/            # Firebase config
-│   ├── hooks/               # Custom hooks
-│   ├── layout/              # Layout wrappers
-│   ├── pages/               # Route-level pages
-│   ├── provider/            # Auth Provider
-│   ├── router/              # Route config and guards
-│   ├── App.jsx              # Root component
-│   ├── main.jsx             # Entry point
-│   └── index.css            # Global styles
-├── .env                     # Environment secrets
-├── tailwind.config.js       # Tailwind settings
-├── vite.config.js           # Vite settings
-├── package.json             # Project metadata
-└── README.md                # Project overview
+│   ├── context/               # React context for global state
+│   ├── firebase/              # Firebase config
+│   │   └── firebase.config.js
+│   ├── hooks/                 # Custom React hooks
+│   ├── layout/                # Layout components
+│   │   └── MainLayout.jsx
+│   ├── pages/                 # Route-based components/pages
+│   │   ├── AddService.jsx
+│   │   ├── BookedServices.jsx
+│   │   ├── Error.jsx
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── ManageService.jsx
+│   │   ├── Registration.jsx
+│   │   └── ServiceToDo.jsx
+│   ├── provider/              # Auth provider and wrappers
+│   │   └── AuthProvider.jsx
+│   ├── router/                # Route configuration and guards
+│   │   ├── PrivateRoutes.jsx
+│   │   └── router.jsx
+│   ├── App.jsx                # Root component
+│   ├── index.css              # Global styles
+│   ├── main.jsx               # Application entry point
+│
+├── .env                       # Environment variables
+├── .gitignore                 # Git ignored files
+├── eslint.config.js           # ESLint configuration
+├── index.html                 # HTML entry file
+├── package.json               # Project metadata and scripts
+├── package-lock.json          # Exact dependency versions
+├── README.md                  # Project documentation
+├── tailwind.config.js         # Tailwind CSS configuration
+└── vite.config.js             # Vite configuration
+
 ```
 
 
